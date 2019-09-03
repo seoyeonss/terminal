@@ -1,0 +1,45 @@
+#include<stdio.h>
+int main()
+{
+   int n, m[30][30], maxn[30];
+   int i, j, k, l=0, row, col, max=-999;
+   printf("***************************************\n");
+   printf("\nEnter the size of the Matrix M: ");
+   scanf("%d", &n);
+   printf("\nThe value of N is %d", n);
+  
+   // input into the matrix
+   printf("\n Enter the elements of the square matrix. Each elements should be distinct");
+  
+   for(i=0; i<n; i++)
+   for(j=0; j<n; j++)
+      scanf("%d", &m[i][j]);
+     
+   for(k=0; k<n; k++)
+   {
+       max=-999;
+   //calculation of the highest element
+       for(i=0; i<n; i++)
+       {
+           for(j=0; j<n; j++)
+           {
+               if(m[i][j]>max)
+               {
+                   max=m[i][j];
+                   row=i;
+                   col=j;
+               }
+          
+           }  
+       }
+      maxn[l++]=max; //The highest element is stored in an array;
+      m[row][col]=-999; // The position of the highest element is set to a large negative number. So that next highest can be calculated.
+     
+   }
+  
+   printf("\n**************** \n");
+   printf("The %d highest elements of the matrix are: \n",n );
+  
+   for(i=0;i<n;i++)
+       printf("%d \t",maxn[i]);
+}
